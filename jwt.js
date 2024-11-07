@@ -11,7 +11,7 @@ const jwtAuthMiddleware = (req, res, next) => {
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    rq.user = decoded;
+    req.user = decoded;
     next(); // if token is valid, proceed to next middleware or route
   } catch (err) {
     console.log(err);
